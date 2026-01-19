@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1768785144">
+  <project timestamp="1768785144">
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Codec\ValueCodec.php">
+      <class name="Ksfraser\ModulesDAO\Codec\ValueCodec" namespace="global">
+        <metrics complexity="11" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
+      </class>
+      <line num="15" type="method" name="encode" visibility="public" complexity="6" crap="42" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="37" type="method" name="decode" visibility="public" complexity="5" crap="30" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <metrics loc="52" ncloc="41" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Contracts\KeyValueStoreInterface.php">
+      <metrics loc="32" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Contracts\RecordStoreInterface.php">
+      <metrics loc="45" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Contracts\StoreAvailabilityInterface.php">
+      <metrics loc="12" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Factory\KeyValueStoreFactory.php">
+      <class name="Ksfraser\ModulesDAO\Factory\KeyValueStoreFactory" namespace="global">
+        <metrics complexity="20" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="50" coveredstatements="0" elements="52" coveredelements="0"/>
+      </class>
+      <line num="27" type="method" name="create" visibility="public" complexity="17" crap="306" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="59" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="61" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
+      <line num="69" type="stmt" count="0"/>
+      <line num="71" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <line num="73" type="stmt" count="0"/>
+      <line num="74" type="stmt" count="0"/>
+      <line num="75" type="stmt" count="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="79" type="stmt" count="0"/>
+      <line num="86" type="method" name="createPdoTableStore" visibility="private" complexity="3" crap="12" count="0"/>
+      <line num="88" type="stmt" count="0"/>
+      <line num="89" type="stmt" count="0"/>
+      <line num="90" type="stmt" count="0"/>
+      <line num="91" type="stmt" count="0"/>
+      <line num="93" type="stmt" count="0"/>
+      <line num="94" type="stmt" count="0"/>
+      <line num="97" type="stmt" count="0"/>
+      <line num="98" type="stmt" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="101" type="stmt" count="0"/>
+      <line num="102" type="stmt" count="0"/>
+      <line num="103" type="stmt" count="0"/>
+      <line num="104" type="stmt" count="0"/>
+      <line num="105" type="stmt" count="0"/>
+      <metrics loc="108" ncloc="98" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="50" coveredstatements="0" elements="52" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\AbstractFileKeyValueStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\AbstractFileKeyValueStore" namespace="global">
+        <metrics complexity="22" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="0" elements="49" coveredelements="0"/>
+      </class>
+      <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="21" type="method" name="isAvailable" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="26" type="method" name="has" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="32" type="method" name="get" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="38" type="method" name="set" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="45" type="method" name="delete" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="54" type="method" name="all" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="61" type="stmt" count="0"/>
+      <line num="62" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="83" type="method" name="load" visibility="protected" complexity="3" crap="12" count="0"/>
+      <line num="85" type="stmt" count="0"/>
+      <line num="86" type="stmt" count="0"/>
+      <line num="89" type="stmt" count="0"/>
+      <line num="90" type="stmt" count="0"/>
+      <line num="91" type="stmt" count="0"/>
+      <line num="94" type="stmt" count="0"/>
+      <line num="100" type="method" name="save" visibility="protected" complexity="6" crap="42" count="0"/>
+      <line num="102" type="stmt" count="0"/>
+      <line num="103" type="stmt" count="0"/>
+      <line num="104" type="stmt" count="0"/>
+      <line num="107" type="stmt" count="0"/>
+      <line num="109" type="stmt" count="0"/>
+      <line num="110" type="stmt" count="0"/>
+      <line num="111" type="stmt" count="0"/>
+      <line num="112" type="stmt" count="0"/>
+      <line num="115" type="stmt" count="0"/>
+      <line num="116" type="stmt" count="0"/>
+      <line num="119" type="stmt" count="0"/>
+      <line num="120" type="stmt" count="0"/>
+      <line num="121" type="stmt" count="0"/>
+      <metrics loc="125" ncloc="109" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="0" elements="49" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\CallableDbTableStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\CallableDbTableStore" namespace="global">
+        <metrics complexity="22" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="60" coveredstatements="0" elements="69" coveredelements="0"/>
+      </class>
+      <line num="52" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="59" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="61" type="stmt" count="0"/>
+      <line num="64" type="method" name="isAvailable" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="69" type="method" name="tbl" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="71" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <line num="75" type="method" name="esc" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="77" type="stmt" count="0"/>
+      <line num="80" type="method" name="has" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="82" type="stmt" count="0"/>
+      <line num="83" type="stmt" count="0"/>
+      <line num="85" type="stmt" count="0"/>
+      <line num="86" type="stmt" count="0"/>
+      <line num="87" type="stmt" count="0"/>
+      <line num="88" type="stmt" count="0"/>
+      <line num="89" type="stmt" count="0"/>
+      <line num="90" type="stmt" count="0"/>
+      <line num="93" type="method" name="get" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="95" type="stmt" count="0"/>
+      <line num="96" type="stmt" count="0"/>
+      <line num="98" type="stmt" count="0"/>
+      <line num="99" type="stmt" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="101" type="stmt" count="0"/>
+      <line num="102" type="stmt" count="0"/>
+      <line num="103" type="stmt" count="0"/>
+      <line num="104" type="stmt" count="0"/>
+      <line num="106" type="stmt" count="0"/>
+      <line num="109" type="method" name="set" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="111" type="stmt" count="0"/>
+      <line num="112" type="stmt" count="0"/>
+      <line num="114" type="stmt" count="0"/>
+      <line num="115" type="stmt" count="0"/>
+      <line num="116" type="stmt" count="0"/>
+      <line num="118" type="stmt" count="0"/>
+      <line num="119" type="stmt" count="0"/>
+      <line num="121" type="stmt" count="0"/>
+      <line num="124" type="stmt" count="0"/>
+      <line num="127" type="method" name="delete" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="129" type="stmt" count="0"/>
+      <line num="130" type="stmt" count="0"/>
+      <line num="132" type="stmt" count="0"/>
+      <line num="133" type="stmt" count="0"/>
+      <line num="134" type="stmt" count="0"/>
+      <line num="135" type="stmt" count="0"/>
+      <line num="138" type="method" name="all" visibility="public" complexity="7" crap="56" count="0"/>
+      <line num="140" type="stmt" count="0"/>
+      <line num="141" type="stmt" count="0"/>
+      <line num="143" type="stmt" count="0"/>
+      <line num="145" type="stmt" count="0"/>
+      <line num="146" type="stmt" count="0"/>
+      <line num="148" type="stmt" count="0"/>
+      <line num="149" type="stmt" count="0"/>
+      <line num="152" type="stmt" count="0"/>
+      <line num="153" type="stmt" count="0"/>
+      <line num="154" type="stmt" count="0"/>
+      <line num="155" type="stmt" count="0"/>
+      <line num="156" type="stmt" count="0"/>
+      <line num="157" type="stmt" count="0"/>
+      <line num="159" type="stmt" count="0"/>
+      <line num="161" type="stmt" count="0"/>
+      <metrics loc="164" ncloc="137" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="60" coveredstatements="0" elements="69" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\CsvFileStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\CsvFileStore" namespace="global">
+        <metrics complexity="13" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="36" coveredelements="0"/>
+      </class>
+      <line num="12" type="method" name="decode" visibility="protected" complexity="9" crap="90" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="49" type="method" name="encode" visibility="protected" complexity="4" crap="20" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="59" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <metrics loc="69" ncloc="63" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="36" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\FrontAccountingDbTableStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\FrontAccountingDbTableStore" namespace="global">
+        <metrics complexity="26" methods="9" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="35" elements="66" coveredelements="39"/>
+      </class>
+      <line num="26" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="28" type="stmt" count="2"/>
+      <line num="29" type="stmt" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <line num="33" type="method" name="isAvailable" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="35" type="stmt" count="2"/>
+      <line num="38" type="method" name="esc" visibility="private" complexity="2" crap="2.15" count="1"/>
+      <line num="40" type="stmt" count="1"/>
+      <line num="41" type="stmt" count="1"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="46" type="method" name="fullTable" visibility="private" complexity="2" crap="2" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
+      <line num="52" type="method" name="has" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="54" type="stmt" count="2"/>
+      <line num="55" type="stmt" count="1"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="58" type="stmt" count="1"/>
+      <line num="59" type="stmt" count="1"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="61" type="stmt" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="65" type="method" name="get" visibility="public" complexity="4" crap="12.19" count="1"/>
+      <line num="67" type="stmt" count="1"/>
+      <line num="68" type="stmt" count="1"/>
+      <line num="70" type="stmt" count="0"/>
+      <line num="71" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <line num="73" type="stmt" count="0"/>
+      <line num="74" type="stmt" count="0"/>
+      <line num="75" type="stmt" count="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="78" type="stmt" count="0"/>
+      <line num="81" type="method" name="set" visibility="public" complexity="3" crap="3.01" count="2"/>
+      <line num="83" type="stmt" count="2"/>
+      <line num="84" type="stmt" count="1"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="87" type="stmt" count="1"/>
+      <line num="88" type="stmt" count="1"/>
+      <line num="90" type="stmt" count="1"/>
+      <line num="91" type="stmt" count="0"/>
+      <line num="93" type="stmt" count="1"/>
+      <line num="96" type="stmt" count="1"/>
+      <line num="99" type="method" name="delete" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="101" type="stmt" count="0"/>
+      <line num="102" type="stmt" count="0"/>
+      <line num="104" type="stmt" count="0"/>
+      <line num="105" type="stmt" count="0"/>
+      <line num="106" type="stmt" count="0"/>
+      <line num="107" type="stmt" count="0"/>
+      <line num="110" type="method" name="all" visibility="public" complexity="7" crap="10.14" count="2"/>
+      <line num="112" type="stmt" count="2"/>
+      <line num="113" type="stmt" count="1"/>
+      <line num="115" type="stmt" count="1"/>
+      <line num="117" type="stmt" count="1"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="120" type="stmt" count="0"/>
+      <line num="121" type="stmt" count="0"/>
+      <line num="124" type="stmt" count="1"/>
+      <line num="125" type="stmt" count="1"/>
+      <line num="126" type="stmt" count="1"/>
+      <line num="127" type="stmt" count="0"/>
+      <line num="128" type="stmt" count="0"/>
+      <line num="129" type="stmt" count="0"/>
+      <line num="131" type="stmt" count="0"/>
+      <line num="133" type="stmt" count="1"/>
+      <metrics loc="136" ncloc="126" classes="1" methods="9" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="35" elements="66" coveredelements="39"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\FrontAccountingSysPrefsStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\FrontAccountingSysPrefsStore" namespace="global">
+        <metrics complexity="19" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="0" elements="37" coveredelements="0"/>
+      </class>
+      <line num="13" type="method" name="isAvailable" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="18" type="method" name="has" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="24" type="method" name="get" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="35" type="method" name="set" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="50" type="method" name="delete" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="63" type="method" name="all" visibility="public" complexity="6" crap="42" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
+      <line num="71" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <line num="75" type="stmt" count="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="77" type="stmt" count="0"/>
+      <line num="78" type="stmt" count="0"/>
+      <line num="81" type="stmt" count="0"/>
+      <line num="84" type="stmt" count="0"/>
+      <metrics loc="87" ncloc="83" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="0" elements="37" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\IniFileStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\IniFileStore" namespace="global">
+        <metrics complexity="8" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="0" elements="27" coveredelements="0"/>
+      </class>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="21" type="method" name="decode" visibility="protected" complexity="5" crap="30" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="45" type="method" name="encode" visibility="protected" complexity="2" crap="6" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="59" type="stmt" count="0"/>
+      <metrics loc="62" ncloc="54" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="0" elements="27" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\JsonFileStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\JsonFileStore" namespace="global">
+        <metrics complexity="7" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="12" coveredelements="0"/>
+      </class>
+      <line num="12" type="method" name="decode" visibility="protected" complexity="6" crap="42" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="28" type="method" name="encode" visibility="protected" complexity="1" crap="2" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <metrics loc="34" ncloc="29" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="12" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\PdoTableStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\PdoTableStore" namespace="global">
+        <metrics complexity="14" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="0" elements="48" coveredelements="0"/>
+      </class>
+      <line num="30" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="38" type="method" name="isAvailable" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="43" type="method" name="has" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="51" type="method" name="get" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="63" type="method" name="set" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
+      <line num="69" type="stmt" count="0"/>
+      <line num="70" type="stmt" count="0"/>
+      <line num="71" type="stmt" count="0"/>
+      <line num="73" type="stmt" count="0"/>
+      <line num="74" type="stmt" count="0"/>
+      <line num="75" type="stmt" count="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="80" type="method" name="delete" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="82" type="stmt" count="0"/>
+      <line num="83" type="stmt" count="0"/>
+      <line num="84" type="stmt" count="0"/>
+      <line num="87" type="method" name="all" visibility="public" complexity="6" crap="42" count="0"/>
+      <line num="89" type="stmt" count="0"/>
+      <line num="91" type="stmt" count="0"/>
+      <line num="92" type="stmt" count="0"/>
+      <line num="93" type="stmt" count="0"/>
+      <line num="95" type="stmt" count="0"/>
+      <line num="96" type="stmt" count="0"/>
+      <line num="97" type="stmt" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="101" type="stmt" count="0"/>
+      <line num="102" type="stmt" count="0"/>
+      <line num="103" type="stmt" count="0"/>
+      <line num="105" type="stmt" count="0"/>
+      <line num="108" type="stmt" count="0"/>
+      <metrics loc="111" ncloc="98" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="0" elements="48" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\SuiteCrmAdministrationStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\SuiteCrmAdministrationStore" namespace="global">
+        <metrics complexity="27" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="0" elements="55" coveredelements="0"/>
+      </class>
+      <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="21" type="method" name="isAvailable" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="26" type="method" name="loadSettings" visibility="private" complexity="5" crap="30" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="40" type="method" name="fullKey" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="45" type="method" name="has" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="51" type="method" name="get" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="58" type="method" name="set" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="61" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="70" type="method" name="delete" visibility="public" complexity="6" crap="42" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <line num="73" type="stmt" count="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="78" type="stmt" count="0"/>
+      <line num="79" type="stmt" count="0"/>
+      <line num="80" type="stmt" count="0"/>
+      <line num="81" type="stmt" count="0"/>
+      <line num="82" type="stmt" count="0"/>
+      <line num="84" type="stmt" count="0"/>
+      <line num="85" type="stmt" count="0"/>
+      <line num="86" type="stmt" count="0"/>
+      <line num="89" type="stmt" count="0"/>
+      <line num="90" type="stmt" count="0"/>
+      <line num="91" type="stmt" count="0"/>
+      <line num="96" type="stmt" count="0"/>
+      <line num="97" type="stmt" count="0"/>
+      <line num="101" type="method" name="all" visibility="public" complexity="5" crap="30" count="0"/>
+      <line num="103" type="stmt" count="0"/>
+      <line num="104" type="stmt" count="0"/>
+      <line num="106" type="stmt" count="0"/>
+      <line num="107" type="stmt" count="0"/>
+      <line num="108" type="stmt" count="0"/>
+      <line num="110" type="stmt" count="0"/>
+      <line num="111" type="stmt" count="0"/>
+      <line num="112" type="stmt" count="0"/>
+      <line num="114" type="stmt" count="0"/>
+      <line num="117" type="stmt" count="0"/>
+      <metrics loc="120" ncloc="115" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="0" elements="55" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\WordPressOptionsStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\WordPressOptionsStore" namespace="global">
+        <metrics complexity="14" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="0" elements="27" coveredelements="0"/>
+      </class>
+      <line num="18" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="24" type="method" name="isAvailable" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="29" type="method" name="opt" visibility="private" complexity="1" crap="2" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="34" type="method" name="has" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="44" type="method" name="get" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="52" type="method" name="set" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="60" type="method" name="delete" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="62" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="68" type="method" name="all" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <metrics loc="75" ncloc="68" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="0" elements="27" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\XmlFileStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\XmlFileStore" namespace="global">
+        <metrics complexity="9" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="22" coveredelements="0"/>
+      </class>
+      <line num="15" type="method" name="decode" visibility="protected" complexity="6" crap="42" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="39" type="method" name="encode" visibility="protected" complexity="3" crap="12" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <metrics loc="53" ncloc="45" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="22" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\KeyValue\YamlFileStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\KeyValue\YamlFileStore" namespace="global">
+        <metrics complexity="13" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="19" coveredelements="0"/>
+      </class>
+      <line num="12" type="method" name="isAvailable" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="17" type="method" name="decode" visibility="protected" complexity="7" crap="56" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="38" type="method" name="encode" visibility="protected" complexity="3" crap="12" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <metrics loc="49" ncloc="44" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="19" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\Record\AbstractFileRecordStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\Record\AbstractFileRecordStore" namespace="global">
+        <metrics complexity="12" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="22" coveredelements="0"/>
+      </class>
+      <line num="18" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="23" type="method" name="isAvailable" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="28" type="method" name="readFileContents" visibility="protected" complexity="3" crap="12" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="38" type="method" name="writeFileContents" visibility="protected" complexity="6" crap="42" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <metrics loc="62" ncloc="55" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="22" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\Record\CsvRecordStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\Record\CsvRecordStore" namespace="global">
+        <metrics complexity="19" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="40" coveredelements="0"/>
+      </class>
+      <line num="18" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="25" type="method" name="find" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="35" type="method" name="findAll" visibility="public" complexity="11" crap="132" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="61" type="stmt" count="0"/>
+      <line num="62" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
+      <line num="69" type="stmt" count="0"/>
+      <line num="73" type="stmt" count="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="77" type="stmt" count="0"/>
+      <line num="80" type="method" name="insert" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="84" type="stmt" count="0"/>
+      <line num="87" type="method" name="update" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="90" type="stmt" count="0"/>
+      <line num="92" type="method" name="delete" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="95" type="stmt" count="0"/>
+      <metrics loc="97" ncloc="85" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="40" coveredelements="0"/>
+    </file>
+    <file name="C:\Users\prote\Documents\ksf_generate_catalogue\ModulesDAO\src\Stores\Record\XmlRecordStore.php">
+      <class name="Ksfraser\ModulesDAO\Stores\Record\XmlRecordStore" namespace="global">
+        <metrics complexity="5" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="10" coveredelements="0"/>
+      </class>
+      <line num="13" type="method" name="find" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="19" type="method" name="findAll" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="25" type="method" name="insert" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="31" type="method" name="update" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="36" type="method" name="delete" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <metrics loc="41" ncloc="31" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="10" coveredelements="0"/>
+    </file>
+    <metrics files="20" loc="1534" ncloc="1324" classes="17" methods="88" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="519" coveredstatements="35" elements="607" coveredelements="39"/>
+  </project>
+</coverage>
