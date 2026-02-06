@@ -41,11 +41,19 @@ class FrontAccountingDbAdapterTest extends DbAdapterTestCase
 
     public function testQueryReturnsArray(): void
     {
-        $this->markTestSkipped('FA database functions not available in test environment');
+        $adapter = $this->createAdapter();
+        $result = $adapter->query('SELECT * FROM test_table');
+        $this->assertIsArray($result);
+        $this->assertCount(2, $result); // Mock returns 2 rows
+        $this->assertEquals('Test Item', $result[0]['name']);
+        $this->assertEquals('Another Item', $result[1]['name']);
     }
 
     public function testExecuteDoesNotThrow(): void
     {
-        $this->markTestSkipped('FA database functions not available in test environment');
+        $adapter = $this->createAdapter();
+        // Should not throw an exception
+        $adapter->execute('INSERT INTO test_table (name) VALUES ("test")');
+        $this->assertTrue(true); // If we get here, no exception was thrown
     }
 }
