@@ -39,4 +39,25 @@ abstract class DbAdapterTestCase extends TestCase
         $escaped = $adapter->escape("test'value");
         $this->assertIsString($escaped);
     }
+
+    public function testQueryReturnsArray(): void
+    {
+        $adapter = $this->createAdapter();
+        // This will be overridden in concrete tests that can provide actual DB functionality
+        $this->markTestSkipped('Query method test must be implemented in concrete test class');
+    }
+
+    public function testExecuteDoesNotThrow(): void
+    {
+        $adapter = $this->createAdapter();
+        // This will be overridden in concrete tests that can provide actual DB functionality
+        $this->markTestSkipped('Execute method test must be implemented in concrete test class');
+    }
+
+    public function testLastInsertIdReturnsIntOrNull(): void
+    {
+        $adapter = $this->createAdapter();
+        $result = $adapter->lastInsertId();
+        $this->assertTrue(is_int($result) || is_null($result));
+    }
 }

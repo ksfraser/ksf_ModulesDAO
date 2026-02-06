@@ -28,6 +28,9 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
 
     public function query(string $sql, array $params = []): array
     {
+        // Replace named parameters with escaped values
+        $sql = $this->substituteParams($sql, $params);
+        
         // Use FA's db_query function
         $result = db_query($sql, 'could not execute query');
 
@@ -41,8 +44,31 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
 
     public function execute(string $sql, array $params = []): void
     {
+        // Replace named parameters with escaped values
+        $sql = $this->substituteParams($sql, $params);
+        
         // Use FA's db_query function
         db_query($sql, 'could not execute query');
+    }
+
+    private function substituteParams(string $sql, array $params): string
+    {
+        foreach ($params as $key => $value) {
+            // Handle named parameters like :param
+            $placeholder = ':' . $key;
+            if (is_null($value)) {
+                $replacement = 'NULL';
+            } elseif (is_numeric($value)) {
+                $replacement = (string)$value;
+            } elseif (is_bool($value)) {
+                $replacement = $value ? '1' : '0';
+            } else {
+                $escapedValue = $this->escape((string)$value);
+                $replacement = "'$escapedValue'";
+            }
+            $sql = str_replace($placeholder, $replacement, $sql);
+        }
+        return $sql;
     }
 
     public function lastInsertId(): ?int
