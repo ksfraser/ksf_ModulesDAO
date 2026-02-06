@@ -63,8 +63,7 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
             } elseif (is_bool($value)) {
                 $replacement = $value ? '1' : '0';
             } else {
-                $escapedValue = $this->escape((string)$value);
-                $replacement = "'$escapedValue'";
+                $replacement = $this->escape((string)$value);
             }
             $sql = str_replace($placeholder, $replacement, $sql);
         }
