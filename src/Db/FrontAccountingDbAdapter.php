@@ -45,7 +45,7 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
         db_query($sql, 'could not execute query');
     }
 
-    public function getLastInsertId(): int
+    public function lastInsertId(): ?int
     {
         // Use FA's db_insert_id function
         return db_insert_id();
