@@ -11,6 +11,7 @@ class FrontAccountingDbAdapterTest extends DbAdapterTestCase
 {
     protected function createAdapter(): \Ksfraser\ModulesDAO\Db\DbAdapterInterface
     {
+        require_once __DIR__ . '/../../../FAMock/php/FaDbStubs.php';
         return new FrontAccountingDbAdapter();
     }
 
