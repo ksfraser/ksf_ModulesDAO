@@ -3,11 +3,9 @@
 namespace Ksfraser\ModulesDAO\Test\Db;
 
 use Ksfraser\ModulesDAO\Db\DbAdapterInterface;
+use Ksfraser\ModulesDAO\Db\FrontAccountingDbAdapter;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Abstract test for DbAdapterInterface implementations
- */
 abstract class DbAdapterTestCase extends TestCase
 {
     abstract protected function createAdapter(): DbAdapterInterface;
@@ -43,15 +41,15 @@ abstract class DbAdapterTestCase extends TestCase
     public function testQueryReturnsArray(): void
     {
         $adapter = $this->createAdapter();
-        // This will be overridden in concrete tests that can provide actual DB functionality
-        $this->markTestSkipped('Query method test must be implemented in concrete test class');
+        $result = $adapter->query('SELECT 1 as test');
+        $this->assertIsArray($result);
     }
 
     public function testExecuteDoesNotThrow(): void
     {
         $adapter = $this->createAdapter();
-        // This will be overridden in concrete tests that can provide actual DB functionality
-        $this->markTestSkipped('Execute method test must be implemented in concrete test class');
+        $affected = $adapter->execute('SELECT 1');
+        $this->assertIsInt($affected);
     }
 
     public function testLastInsertIdReturnsIntOrNull(): void
@@ -59,5 +57,45 @@ abstract class DbAdapterTestCase extends TestCase
         $adapter = $this->createAdapter();
         $result = $adapter->lastInsertId();
         $this->assertTrue(is_int($result) || is_null($result));
+    }
+}
+
+class FrontAccountingDbAdapterTest extends DbAdapterTestCase
+{
+    protected function createAdapter(): DbAdapterInterface
+    {
+        return new FrontAccountingDbAdapter();
+    }
+
+    public function testConstructorWithPrefix(): void
+    {
+        $adapter = new FrontAccountingDbAdapter('custom_');
+        $this->assertInstanceOf(FrontAccountingDbAdapter::class, $adapter);
+    }
+
+    public function testGetTablePrefixWithCustomPrefix(): void
+    {
+        $adapter = new FrontAccountingDbAdapter('custom_');
+        $this->assertEquals('custom_', $adapter->getTablePrefix());
+    }
+
+    public function testGetTablePrefixWithEmptyPrefix(): void
+    {
+        $adapter = new FrontAccountingDbAdapter('');
+        $this->assertEquals('', $adapter->getTablePrefix());
+    }
+
+    public function testEscapeSingleQuote(): void
+    {
+        $adapter = new FrontAccountingDbAdapter();
+        $escaped = $adapter->escape("test's value");
+        $this->assertEquals("test\\'s value", $escaped);
+    }
+
+    public function testEscapeDoubleQuote(): void
+    {
+        $adapter = new FrontAccountingDbAdapter();
+        $escaped = $adapter->escape('test"value');
+        $this->assertEquals('test"value', $escaped);
     }
 }

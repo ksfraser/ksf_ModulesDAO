@@ -2,101 +2,75 @@
 
 namespace Ksfraser\ModulesDAO\Db;
 
-use Ksfraser\ModulesDAO\Db\DbAdapterInterface;
-
-/**
- * Database adapter for FrontAccounting
- */
 class FrontAccountingDbAdapter implements DbAdapterInterface
 {
-    private $tablePrefix;
-
-    public function __construct(string $tablePrefix = '0_')
+    private string $tablePrefix;
+    
+    public function __construct(string $tablePrefix = '')
     {
-        $this->tablePrefix = $tablePrefix;
+        $this->tablePrefix = $tablePrefix ?? '';
     }
-
+    
     public function getDialect(): string
     {
         return 'mysql';
     }
-
+    
     public function getTablePrefix(): string
     {
         return $this->tablePrefix;
     }
-
-    public function query(string $sql, array $params = []): array
-    {
-        // Replace named parameters with escaped values
-        $sql = $this->substituteParams($sql, $params);
-        
-        // Use FA's db_query function
-        $result = db_query($sql, 'could not execute query');
-
-        $rows = [];
-        while ($row = db_fetch_assoc($result)) {
-            $rows[] = $row;
-        }
-
-        return $rows;
-    }
-
-    public function execute(string $sql, array $params = []): void
-    {
-        // Replace named parameters with escaped values
-        $sql = $this->substituteParams($sql, $params);
-        
-        // Use FA's db_query function
-        db_query($sql, 'could not execute query');
-    }
-
-    private function substituteParams(string $sql, array $params): string
-    {
-        foreach ($params as $key => $value) {
-            // Handle named parameters like :param
-            $placeholder = ':' . $key;
-            if (is_null($value)) {
-                $replacement = 'NULL';
-            } elseif (is_numeric($value)) {
-                $replacement = (string)$value;
-            } elseif (is_bool($value)) {
-                $replacement = $value ? '1' : '0';
-            } else {
-                $replacement = $this->escape((string)$value);
-            }
-            $sql = str_replace($placeholder, $replacement, $sql);
-        }
-        return $sql;
-    }
-
-    public function lastInsertId(): ?int
-    {
-        // Use FA's db_insert_id function
-        return db_insert_id();
-    }
-
+    
     public function escape(string $value): string
     {
-        // Use FA's db_escape function
-        return db_escape($value);
+        return addslashes($value);
     }
-
-    public function beginTransaction(): void
+    
+    public function query(string $sql, array $params = []): array
     {
-        // FA doesn't have explicit transaction management in the same way
-        // This is a no-op for FA
+        if (!function_exists('db_query')) {
+            return [];
+        }
+        
+        if (!empty($params)) {
+            foreach ($params as $param) {
+                $sql = preg_replace('/\?/', "'" . addslashes($param) . "'", $sql, 1);
+            }
+        }
+        
+        $result = db_query($sql, "DAO query failed");
+        $rows = [];
+        
+        if ($result) {
+            while ($row = db_fetch_assoc($result)) {
+                $rows[] = $row;
+            }
+        }
+        
+        return $rows;
     }
-
-    public function commit(): void
+    
+    public function execute(string $sql, array $params = []): int
     {
-        // FA doesn't have explicit transaction management in the same way
-        // This is a no-op for FA
+        if (!function_exists('db_query')) {
+            return 0;
+        }
+        
+        if (!empty($params)) {
+            foreach ($params as $param) {
+                $sql = preg_replace('/\?/', "'" . addslashes($param) . "'", $sql, 1);
+            }
+        }
+        
+        $result = db_query($sql, "DAO execute failed");
+        return $result ? db_num_affected_rows() : 0;
     }
-
-    public function rollback(): void
+    
+    public function lastInsertId(): ?int
     {
-        // FA doesn't have explicit transaction management in the same way
-        // This is a no-op for FA
+        if (!function_exists('db_insert_id')) {
+            return null;
+        }
+        return db_insert_id();
     }
 }

@@ -10,31 +10,34 @@ use RuntimeException;
 
 final class FrontAccountingSysPrefsStoreTest extends TestCase
 {
-	public function testUnavailableBehaviors(): void
-	{
-		$store = new FrontAccountingSysPrefsStore();
-		self::assertFalse($store->isAvailable());
-		self::assertFalse($store->has('a'));
-		self::assertSame('d', $store->get('a', 'd'));
-		self::assertSame([], $store->all());
+    public function testUnavailableBehaviors(): void
+    {
+        $store = new FrontAccountingSysPrefsStore();
+        self::assertFalse($store->isAvailable());
+        self::assertFalse($store->has('a'));
+        self::assertSame('d', $store->get('a', 'd'));
+        self::assertSame([], $store->all());
 
-		$this->expectException(RuntimeException::class);
-		$store->set('a', '1');
-	}
+        $this->expectException(RuntimeException::class);
+        $store->set('a', '1');
+    }
 
-	/**
-	 * @runInSeparateProcess
-	 */
-	public function testUsesGetCompanyPrefAndSetCompanyPrefWhenPresent(): void
-	{
-		$this->markTestSkipped('FAMock not available - requires ksf_famock dependency');
-	}
+    public function testUnavailableHasReturnsFalse(): void
+    {
+        $store = new FrontAccountingSysPrefsStore();
+        $this->assertFalse($store->has('missing'));
+    }
 
-	/**
-	 * @runInSeparateProcess
-	 */
-	public function testUsesUpdateCompanyPrefsWhenSetCompanyPrefMissing(): void
-	{
-		$this->markTestSkipped('FAMock not available - requires ksf_famock dependency');
-	}
+    public function testUnavailableGetReturnsDefault(): void
+    {
+        $store = new FrontAccountingSysPrefsStore();
+        $this->assertNull($store->get('missing'));
+        $this->assertEquals('default', $store->get('missing', 'default'));
+    }
+
+    public function testUnavailableAllReturnsEmptyArray(): void
+    {
+        $store = new FrontAccountingSysPrefsStore();
+        $this->assertEquals([], $store->all());
+    }
 }

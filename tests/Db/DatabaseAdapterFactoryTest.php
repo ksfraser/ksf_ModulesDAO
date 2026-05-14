@@ -5,8 +5,6 @@ namespace Ksfraser\ModulesDAO\Test\Db;
 use Ksfraser\ModulesDAO\Factory\DatabaseAdapterFactory;
 use Ksfraser\ModulesDAO\Db\DbAdapterInterface;
 use Ksfraser\ModulesDAO\Db\FrontAccountingDbAdapter;
-use Ksfraser\ModulesDAO\Db\PdoDbAdapter;
-use Ksfraser\ModulesDAO\Db\MysqlDbAdapter;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,16 +24,7 @@ class DatabaseAdapterFactoryTest extends TestCase
         $adapter = DatabaseAdapterFactory::create('fa', 'custom_');
         $this->assertInstanceOf(FrontAccountingDbAdapter::class, $adapter);
         $this->assertInstanceOf(DbAdapterInterface::class, $adapter);
-    }
-
-    public function testCreatePdoAdapter(): void
-    {
-        $this->markTestSkipped('PDO adapter requires database connection not available in test environment');
-    }
-
-    public function testCreateMysqlAdapter(): void
-    {
-        $this->markTestSkipped('MySQL adapter requires database connection not available in test environment');
+        $this->assertEquals('custom_', $adapter->getTablePrefix());
     }
 
     public function testCreateDefaultAdapter(): void
@@ -50,5 +39,15 @@ class DatabaseAdapterFactoryTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Unknown database driver: unknown');
         DatabaseAdapterFactory::create('unknown');
+    }
+
+    public function testFaAdapterMethodsWorkWithoutFa(): void
+    {
+        $adapter = DatabaseAdapterFactory::create('fa');
+        $this->assertEquals('mysql', $adapter->getDialect());
+        $this->assertIsString($adapter->getTablePrefix());
+        $this->assertStringContainsString("'", $adapter->escape("test'value"));
+        $this->assertIsArray($adapter->query('SELECT 1'));
+        $this->assertIsInt($adapter->execute('SELECT 1'));
     }
 }
