@@ -391,11 +391,11 @@ final class QueryBuilder
 
     private function buildSelectSql(): string
     {
-        if (str_starts_with($this->from, 'INSERT')) {
+        if (strpos($this->from, 'INSERT') === 0) {
             return $this->from;
         }
 
-        if (str_starts_with($this->from, 'UPDATE') || str_starts_with($this->from, 'DELETE')) {
+        if (strpos($this->from, 'UPDATE') === 0 || strpos($this->from, 'DELETE') === 0) {
             $sql = $this->from;
             if (!empty($this->where)) {
                 $sql .= ' WHERE' . $this->buildWhereClause($this->where);
@@ -403,7 +403,7 @@ final class QueryBuilder
             return $sql;
         }
 
-        if (str_starts_with($this->from, 'SELECT')) {
+        if (strpos($this->from, 'SELECT') === 0) {
             return $this->from;
         }
 
