@@ -9,9 +9,21 @@ class ksf_ModulesDAO
     public function query($sql, $params = [])
     {
         if (!empty($params)) {
-            // Simple parameter replacement, assuming ? placeholders
-            foreach ($params as $param) {
-                $sql = preg_replace('/\?/', "'" . addslashes($param) . "'", $sql, 1);
+            // Pre-split on '?' placeholders BEFORE substitution so literal
+            // '?' characters inside parameter values (e.g. URLs in raw_json)
+            // cannot collide with subsequent placeholder replacements.
+            $parts = explode('?', $sql);
+            if (count($parts) === count($params) + 1) {
+                $built = array_shift($parts);
+                foreach ($parts as $i => $part) {
+                    $built .= $this->quoteValue($params[$i]) . $part;
+                }
+                $sql = $built;
+            } else {
+                // Fallback for SQL strings that legitimately contain '?' literals
+                foreach ($params as $param) {
+                    $sql = preg_replace('/\?/', $this->quoteValue($param), $sql, 1);
+                }
             }
         }
         return db_query($sql, "DAO query failed");
@@ -35,5 +47,13 @@ class ksf_ModulesDAO
     public function rollback()
     {
         db_query("ROLLBACK");
+    }
+
+    private function quoteValue($value)
+    {
+        if ($value === null) {
+            return 'NULL';
+        }
+        return "'" . addslashes((string)$value) . "'";
     }
 }
