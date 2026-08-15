@@ -53,21 +53,31 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
 
     private function substituteParams(string $sql, array $params): string
     {
-        foreach ($params as $key => $value) {
-            // Handle named parameters like :param
-            $placeholder = ':' . $key;
-            if (is_null($value)) {
-                $replacement = 'NULL';
-            } elseif (is_numeric($value)) {
-                $replacement = (string)$value;
-            } elseif (is_bool($value)) {
-                $replacement = $value ? '1' : '0';
-            } else {
-                $replacement = $this->escape((string)$value);
-            }
-            $sql = str_replace($placeholder, $replacement, $sql);
-        }
-        return $sql;
+        // Single regex pass over :name placeholders so a placeholder whose name
+        // is a prefix of another (e.g. :manufacturer_duration inside
+        // :manufacturer_duration_unit) cannot be corrupted by a shorter
+        // replacement earlier in the loop.
+        return preg_replace_callback(
+            '/:([a-zA-Z_][a-zA-Z0-9_]*)/',
+            function (array $matches) use ($params) {
+                $key = $matches[1];
+                if (!array_key_exists($key, $params)) {
+                    return $matches[0]; // unknown placeholder — leave untouched
+                }
+                $value = $params[$key];
+                if (is_null($value)) {
+                    return 'NULL';
+                }
+                if (is_bool($value)) {
+                    return $value ? '1' : '0';
+                }
+                if (is_numeric($value)) {
+                    return (string)$value;
+                }
+                return $this->escape((string)$value);
+            },
+            $sql
+        );
     }
 
     public function lastInsertId(): ?int
