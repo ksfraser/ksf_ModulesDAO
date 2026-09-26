@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 final class FileKeyValueStoresTest extends TestCase
 {
 	/** @var string[] */
-	private array $paths = [];
+	private $paths = [];
 
 	private function tempPath(string $name): string
 	{

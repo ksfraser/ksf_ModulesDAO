@@ -18,7 +18,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Ksfraser\\ModulesDAO\\Tests\\": "tests/"
+      "Ksfraser\\ModulesDAO\\Test\\": "tests/"
     }
   },
   "require-dev": {

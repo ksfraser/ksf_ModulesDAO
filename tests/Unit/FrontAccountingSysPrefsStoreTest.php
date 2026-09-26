@@ -46,7 +46,7 @@ final class FrontAccountingSysPrefsStoreTest extends TestCase
 	 */
 	public function testUsesUpdateCompanyPrefsWhenSetCompanyPrefMissing(): void
 	{
-		require_once __DIR__ . '/../../../FAMock/php/FaUpdateOnlyStubs.php';
+		require_once __DIR__ . '/../../../famock/php/FaUpdateOnlyStubs.php';
 
 		$store = new FrontAccountingSysPrefsStore();
 		self::assertTrue($store->isAvailable());

@@ -40,10 +40,18 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
 
     private function esc(string $value): string
     {
+        // db_escape() is the only correct escaper here: it wraps
+        // mysqli_real_escape_string() for the live connection and charset. There
+        // is deliberately no addslashes() fallback - this class only ever runs
+        // inside FA (see isAvailable()), and silently falling back to a
+        // charset-unaware escaper would turn a missing FA runtime into a
+        // SQL injection instead of a clear failure.
         if (function_exists('db_escape') || function_exists('\\db_escape')) {
             return (string)db_escape($value);
         }
-        return addslashes($value);
+        throw new RuntimeException(
+            'db_escape() is unavailable; FrontAccountingDbTableStore requires an FA runtime.'
+        );
     }
 
     private function fullTable(): string

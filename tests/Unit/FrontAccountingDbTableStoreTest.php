@@ -27,7 +27,7 @@ final class FrontAccountingDbTableStoreTest extends TestCase
 	 */
 	public function testCrudWithStubbedFaDb(): void
 	{
-		require_once __DIR__ . '/../../../FAMock/php/FaDbStubs.php';
+		require_once __DIR__ . '/../../../famock/php/FaDbStubs.php';
 
 		$store = new FrontAccountingDbTableStore('prefs');
 		self::assertTrue($store->isAvailable());

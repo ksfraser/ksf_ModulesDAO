@@ -9,6 +9,30 @@ use Ksfraser\ModulesDAO\Db\FrontAccountingDbAdapter;
  */
 class FrontAccountingDbAdapterTest extends DbAdapterTestCase
 {
+    /**
+     * The FA adapter delegates to db_query()/db_escape()/db_insert_id(), which
+     * only exist inside a FrontAccounting runtime. Load the famock stubs before
+     * any test runs so the adapter has something to talk to. The stub file
+     * guards each definition with function_exists(), so loading it when another
+     * test already has is harmless.
+     */
+    public static function setUpBeforeClass(): void
+    {
+        $candidates = [
+            __DIR__ . '/../../../famock/php/FaDbStubs.php',
+            __DIR__ . '/../../vendor/ksfraser/famock/php/FaDbStubs.php',
+        ];
+        foreach ($candidates as $path) {
+            if (is_file($path)) {
+                require_once $path;
+                return;
+            }
+        }
+        throw new \RuntimeException(
+            'Could not locate famock FaDbStubs.php; looked in: ' . implode(', ', $candidates)
+        );
+    }
+
     protected function createAdapter(): \Ksfraser\ModulesDAO\Db\DbAdapterInterface
     {
         return new FrontAccountingDbAdapter();
@@ -94,5 +118,36 @@ class FrontAccountingDbAdapterTest extends DbAdapterTestCase
         $sql = $GLOBALS['__fa_last_sql'];
         $this->assertMatchesRegularExpression('/col\s*=\s*[\'"]?value[\'"]?/', $sql);
         $this->assertStringContainsString('other = :unknown', $sql);
+    }
+
+    /**
+     * Regression: digit-string ids (e.g. stock_id "0000000") must stay quoted
+     * strings. is_numeric() previously emitted them unquoted, so MySQL parsed
+     * 0000000 as the integer 0 and the varchar key silently collapsed to "0",
+     * making condition assignment writes/reads land on the wrong row.
+     */
+    public function testSubstituteParamsPreservesLeadingZeroStringIds(): void
+    {
+        $adapter = new FrontAccountingDbAdapter();
+        $adapter->execute(
+            'INSERT INTO `0_product_condition_assignments` (stock_id, condition_id)'
+            . ' VALUES (:stock_id, :condition_id)',
+            ['stock_id' => '0000000', 'condition_id' => 7]
+        );
+
+        $sql = $GLOBALS['__fa_last_sql'];
+        $this->assertStringContainsString("VALUES ('0000000', 7)", $sql);
+    }
+
+    public function testSubstituteParamsQuotesNumericLookingStrings(): void
+    {
+        $adapter = new FrontAccountingDbAdapter();
+        $adapter->query(
+            'SELECT * FROM `0_t` WHERE stock_id = :s',
+            ['s' => '048492035032']
+        );
+
+        $sql = $GLOBALS['__fa_last_sql'];
+        $this->assertStringContainsString("stock_id = '048492035032'", $sql);
     }
 }

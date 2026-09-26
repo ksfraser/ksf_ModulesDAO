@@ -31,8 +31,14 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
         // Replace named parameters with escaped values
         $sql = $this->substituteParams($sql, $params);
         
-        // Use FA's db_query function
-        $result = db_query($sql, 'could not execute query');
+        // Use FA's db_query function. Pass a NULL error message so a failed
+        // query does NOT trigger check_db_error(..., exit=true) -> end_page();
+        // exit; which would kill the whole AJAX request from a module hook.
+        $result = db_query($sql, null);
+        if ($result === false && db_error_no() != 0) {
+            global $db;
+            throw new \RuntimeException('Database error ' . db_error_no() . ': ' . db_error_msg($db));
+        }
 
         $rows = [];
         while ($row = db_fetch_assoc($result)) {
@@ -47,8 +53,14 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
         // Replace named parameters with escaped values
         $sql = $this->substituteParams($sql, $params);
         
-        // Use FA's db_query function
-        db_query($sql, 'could not execute query');
+        // Use FA's db_query function. Pass a NULL error message so a failed
+        // query does NOT trigger check_db_error(..., exit=true) -> end_page();
+        // exit; which would kill the whole AJAX request from a module hook.
+        $result = db_query($sql, null);
+        if ($result === false && db_error_no() != 0) {
+            global $db;
+            throw new \RuntimeException('Database error ' . db_error_no() . ': ' . db_error_msg($db));
+        }
     }
 
     private function substituteParams(string $sql, array $params): string
@@ -71,10 +83,16 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
                 if (is_bool($value)) {
                     return $value ? '1' : '0';
                 }
-                if (is_numeric($value)) {
+                if (is_int($value) || is_float($value)) {
                     return (string)$value;
                 }
-                return $this->escape((string)$value);
+                // Strings MUST be quoted as well as escaped. escape() only
+                // escapes; it does not add delimiters, so substituting its
+                // return value bare emitted `WHERE stock_id = 048492035032`,
+                // which MySQL reads as the integer 48492035032 and never matches
+                // a varchar key. It also let a digit-only id such as '0000000'
+                // collapse to 0. Quote here, matching MysqlDbAdapter::bindParams.
+                return "'" . $this->escape((string)$value) . "'";
             },
             $sql
         );

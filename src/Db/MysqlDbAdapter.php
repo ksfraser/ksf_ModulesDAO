@@ -101,9 +101,4 @@ class MysqlDbAdapter implements DbAdapterInterface
         }
         return $sql;
     }
-
-    public function lastInsertId(): ?int
-    {
-        return mysql_insert_id($this->connection);
-    }
 }
