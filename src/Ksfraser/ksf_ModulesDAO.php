@@ -54,6 +54,19 @@ class ksf_ModulesDAO
         if ($value === null) {
             return 'NULL';
         }
-        return "'" . addslashes((string)$value) . "'";
+        if (is_bool($value)) {
+            return $value ? '1' : '0';
+        }
+        if (is_int($value) || is_float($value)) {
+            return (string)$value;
+        }
+        // db_escape(), not addslashes(): FA has no prepared statements, so
+        // connection-aware escaping is the only defence, and addslashes() is
+        // charset-unaware.
+        $str = (string)$value;
+        if (function_exists('db_escape')) {
+            return "'" . db_escape($str) . "'";
+        }
+        throw new \RuntimeException('db_escape() is unavailable; literal rendering requires a FrontAccounting runtime.');
     }
 }

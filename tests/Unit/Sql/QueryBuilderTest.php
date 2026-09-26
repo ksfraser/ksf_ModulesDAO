@@ -11,7 +11,9 @@ final class QueryBuilderTest extends TestCase
 {
     /** @var DbAdapterInterface&MockObject */
     private $adapter;
-    private QueryBuilder $qb;
+
+    /** @var QueryBuilder */
+    private $qb;
 
     protected function setUp(): void
     {

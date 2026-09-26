@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 final class FileRecordStoresTest extends TestCase
 {
 	/** @var string[] */
-	private array $paths = [];
+	private $paths = [];
 
 	private function tempPath(string $name): string
 	{

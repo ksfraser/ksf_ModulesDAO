@@ -46,8 +46,15 @@ class DatabaseAdapterFactoryTest extends TestCase
         $adapter = DatabaseAdapterFactory::create('fa');
         $this->assertEquals('mysql', $adapter->getDialect());
         $this->assertIsString($adapter->getTablePrefix());
-        $this->assertStringContainsString("'", $adapter->escape("test'value"));
         $this->assertIsArray($adapter->query('SELECT 1'));
         $this->assertIsInt($adapter->execute('SELECT 1'));
+
+        // escape() is the one method that cannot degrade: it needs db_escape(),
+        // so it fails closed. See FrontAccountingDbAdapterTest.
+        if (!function_exists('db_escape')) {
+            $this->expectException(\RuntimeException::class);
+            $this->expectExceptionMessage('db_escape() is unavailable');
+        }
+        $adapter->escape("test'value");
     }
 }

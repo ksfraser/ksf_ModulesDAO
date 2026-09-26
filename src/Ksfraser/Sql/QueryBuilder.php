@@ -8,20 +8,45 @@ use Ksfraser\ModulesDAO\Db\DbAdapterInterface;
 
 final class QueryBuilder
 {
-    private DbAdapterInterface $db;
-    private string $prefix;
+    /** @var DbAdapterInterface */
+    private $db;
 
-    private array $select = ['*'];
-    private string $from;
-    private string $fromAlias = '';
-    private array $joins = [];
-    private array $where = [];
-    private array $params = [];
-    private array $groupBy = [];
-    private array $having = [];
-    private array $orderBy = [];
-    private ?int $limit = null;
-    private ?int $offset = null;
+    /** @var string */
+    private $prefix;
+
+    /** @var array */
+    private $select = ['*'];
+
+    /** @var string */
+    private $from;
+
+    /** @var string */
+    private $fromAlias = '';
+
+    /** @var array */
+    private $joins = [];
+
+    /** @var array */
+    private $where = [];
+
+    /** @var array */
+    private $params = [];
+
+    /** @var array */
+    private $groupBy = [];
+
+    /** @var array */
+    private $having = [];
+
+    /** @var array */
+    private $orderBy = [];
+
+    /** @var int|null */
+    private $limit = null;
+
+    /** @var int|null */
+    private $offset = null;
+
     public function __construct(DbAdapterInterface $db)
     {
         $this->db = $db;

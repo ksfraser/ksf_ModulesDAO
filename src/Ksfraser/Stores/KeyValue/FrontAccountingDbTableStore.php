@@ -43,7 +43,10 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
         if (function_exists('db_escape') || function_exists('\\db_escape')) {
             return (string)db_escape($value);
         }
-        return addslashes($value);
+        // Fail closed. The previous addslashes() fallback silently produced
+        // SQL that could break out of a quoted literal, so a missing FA
+        // runtime was a security hole rather than a loud failure.
+        throw new \RuntimeException('db_escape() is unavailable; this store requires a FrontAccounting runtime.');
     }
 
     private function fullTable(): string

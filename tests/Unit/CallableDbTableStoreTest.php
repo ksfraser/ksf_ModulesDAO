@@ -21,11 +21,11 @@ final class CallableDbTableStoreTest extends TestCase
 
 				if (preg_match("/WHERE\s+[^=]+\s*=\s*'([^']*)'/", $sql, $m)) {
 					$k = stripslashes($m[1]);
-					$rows = array_values(array_filter($rows, fn($r) => (string)($r['pref_name'] ?? '') === $k));
+					$rows = array_values(array_filter($rows, function ($r) use ($k) { return (string)($r['pref_name'] ?? '') === $k; }));
 				} elseif (preg_match("/LIKE\s*'([^']*)'/", $sql, $m)) {
 					$like = stripslashes($m[1]);
 					$prefix = rtrim($like, '%');
-					$rows = array_values(array_filter($rows, fn($r) => strncmp((string)($r['pref_name'] ?? ''), $prefix, strlen($prefix)) === 0));
+					$rows = array_values(array_filter($rows, function ($r) use ($prefix) { return strncmp((string)($r['pref_name'] ?? ''), $prefix, strlen($prefix)) === 0; }));
 				}
 
 				$resultSets[$sql] = $rows;
@@ -57,7 +57,7 @@ final class CallableDbTableStoreTest extends TestCase
 			if (stripos($sql, 'DELETE') === 0) {
 				if (preg_match("/WHERE\s+[^=]+\s*=\s*'([^']*)'/", $sql, $m)) {
 					$k = stripslashes($m[1]);
-					$table = array_values(array_filter($table, fn($r) => (string)($r['pref_name'] ?? '') !== $k));
+					$table = array_values(array_filter($table, function ($r) use ($k) { return (string)($r['pref_name'] ?? '') !== $k; }));
 				}
 				return true;
 			}
@@ -76,8 +76,8 @@ final class CallableDbTableStoreTest extends TestCase
 			return $rows[$pos];
 		};
 
-		$escape = fn(string $v) => addslashes($v);
-		$tablePrefix = fn() => 't_';
+		$escape = function (string $v) { return addslashes($v); };
+		$tablePrefix = function () { return 't_'; };
 
 		$store = new CallableDbTableStore($query, $fetch, $escape, $tablePrefix, 'prefs');
 
@@ -102,8 +102,8 @@ final class CallableDbTableStoreTest extends TestCase
 
 	public function testUnavailableStoreIsNoop(): void
 	{
-		$noop = fn() => null;
-		$store = new CallableDbTableStore($noop, $noop, fn($v) => (string)$v, fn() => '', 'prefs', 'pref_name', 'pref_value', false);
+		$noop = function () { return null; };
+		$store = new CallableDbTableStore($noop, $noop, function ($v) { return (string)$v; }, function () { return ''; }, 'prefs', 'pref_name', 'pref_value', false);
 
 		self::assertFalse($store->has('a'));
 		self::assertSame('d', $store->get('a', 'd'));
