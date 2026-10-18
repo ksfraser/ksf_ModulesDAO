@@ -20,12 +20,14 @@ class ksf_ModulesDAO
     /**
      * Render a PHP value as a SQL literal.
      *
-     * Strings go through FA's db_escape(), which wraps mysqli_real_escape_string
-     * for the current connection and charset. addslashes() is NOT an acceptable
-     * substitute: it is charset-unaware, so a multi-byte sequence can be made to
-     * swallow the escaping backslash, and it does not escape every character
-     * MySQL treats specially. FA has no prepared statements, so escaping is the
-     * only defence and it has to be the connection-aware one.
+     * String values are rendered by FA's db_escape(), which already wraps
+     * mysqli_real_escape_string() in single quotes for the current connection
+     * and charset, so its return value is a complete literal and is returned
+     * bare. addslashes() is NOT an acceptable substitute: it is
+     * charset-unaware, so a multi-byte sequence can be made to swallow the
+     * escaping backslash, and it does not escape every character MySQL treats
+     * specially. FA has no prepared statements, so escaping is the only defence
+     * and it has to be the connection-aware one.
      *
      * @param  mixed $value
      * @return string
@@ -41,7 +43,7 @@ class ksf_ModulesDAO
         if (is_int($value) || is_float($value)) {
             return (string)$value;
         }
-        return "'" . db_escape((string)$value) . "'";
+        return db_escape((string)$value);
     }
 
     public function affectedRows()

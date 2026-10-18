@@ -86,13 +86,19 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
                 if (is_int($value) || is_float($value)) {
                     return (string)$value;
                 }
-                // Strings MUST be quoted as well as escaped. escape() only
-                // escapes; it does not add delimiters, so substituting its
-                // return value bare emitted `WHERE stock_id = 048492035032`,
-                // which MySQL reads as the integer 48492035032 and never matches
-                // a varchar key. It also let a digit-only id such as '0000000'
-                // collapse to 0. Quote here, matching MysqlDbAdapter::bindParams.
-                return "'" . $this->escape((string)$value) . "'";
+                // Strings MUST go through escape() so they stay quoted AND
+                // escaped. FA's db_escape() is not a bare
+                // mysqli_real_escape_string(): per includes/db/connect_db_mysqli.inc
+                // it returns "'" . mysqli_real_escape_string(...) . "'", i.e. a
+                // ready-to-use SQL literal. So it must be substituted BARE.
+                //
+                // Adding our own delimiters here produced doubly-quoted garbage
+                // (`WHERE stock_id = ''048492035032''`, `VALUES (NULL, ''months'')`),
+                // which MySQL parses as an empty string followed by a bare
+                // token - a syntax error, or silently the wrong comparison.
+                // The earlier "it only escapes, it does not add delimiters"
+                // assumption was based on mysqli_real_escape_string, not db_escape.
+                return $this->escape((string)$value);
             },
             $sql
         );
@@ -104,6 +110,16 @@ class FrontAccountingDbAdapter implements DbAdapterInterface
         return db_insert_id();
     }
 
+    /**
+     * Render a string as a quoted, escaped SQL literal.
+     *
+     * NOTE: FA's db_escape() already wraps the escaped value in single quotes
+     * (includes/db/connect_db_mysqli.inc), so the result of this method is a
+     * complete literal and must NOT be wrapped again by the caller.
+     *
+     * @param  string $value
+     * @return string
+     */
     public function escape(string $value): string
     {
         // Use FA's db_escape function

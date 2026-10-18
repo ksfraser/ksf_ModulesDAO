@@ -38,14 +38,27 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
         return $hasQuery && $hasFetch && $hasPrefix;
     }
 
+    /**
+     * Render a string as a quoted, escaped SQL literal.
+     *
+     * db_escape() is the only correct escaper here: it wraps
+     * mysqli_real_escape_string() for the live connection and charset. There
+     * is deliberately no addslashes() fallback - this class only ever runs
+     * inside FA (see isAvailable()), and silently falling back to a
+     * charset-unaware escaper would turn a missing FA runtime into a
+     * SQL injection instead of a clear failure.
+     *
+     * NOTE: FA's db_escape() already wraps the escaped value in single quotes
+     * (includes/db/connect_db_mysqli.inc), so the returned string is a complete
+     * literal. Callers must interpolate it BARE. Wrapping it again as '{$k}'
+     * produced ''p.a'' and every write silently missed the table.
+     *
+     * @param  string $value
+     * @return string
+     * @throws RuntimeException
+     */
     private function esc(string $value): string
     {
-        // db_escape() is the only correct escaper here: it wraps
-        // mysqli_real_escape_string() for the live connection and charset. There
-        // is deliberately no addslashes() fallback - this class only ever runs
-        // inside FA (see isAvailable()), and silently falling back to a
-        // charset-unaware escaper would turn a missing FA runtime into a
-        // SQL injection instead of a clear failure.
         if (function_exists('db_escape') || function_exists('\\db_escape')) {
             return (string)db_escape($value);
         }
@@ -67,7 +80,7 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
         }
         $tbl = $this->fullTable();
         $k = $this->esc($key);
-        $sql = "SELECT 1 FROM {$tbl} WHERE {$this->nameCol} = '{$k}'";
+        $sql = "SELECT 1 FROM {$tbl} WHERE {$this->nameCol} = {$k}";
         $res = db_query($sql);
         $row = db_fetch($res);
         return (bool)$row;
@@ -80,7 +93,7 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
         }
         $tbl = $this->fullTable();
         $k = $this->esc($key);
-        $sql = "SELECT {$this->valueCol} FROM {$tbl} WHERE {$this->nameCol} = '{$k}'";
+        $sql = "SELECT {$this->valueCol} FROM {$tbl} WHERE {$this->nameCol} = {$k}";
         $res = db_query($sql);
         $row = db_fetch($res);
         if (!$row) {
@@ -99,9 +112,9 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
         $v = $this->esc((string)$value);
 
         if ($this->has($key)) {
-            $sql = "UPDATE {$tbl} SET {$this->valueCol} = '{$v}' WHERE {$this->nameCol} = '{$k}'";
+            $sql = "UPDATE {$tbl} SET {$this->valueCol} = {$v} WHERE {$this->nameCol} = {$k}";
         } else {
-            $sql = "INSERT INTO {$tbl} ({$this->nameCol}, {$this->valueCol}) VALUES ('{$k}', '{$v}')";
+            $sql = "INSERT INTO {$tbl} ({$this->nameCol}, {$this->valueCol}) VALUES ({$k}, {$v})";
         }
 
         db_query($sql);
@@ -114,7 +127,7 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
         }
         $tbl = $this->fullTable();
         $k = $this->esc($key);
-        $sql = "DELETE FROM {$tbl} WHERE {$this->nameCol} = '{$k}'";
+        $sql = "DELETE FROM {$tbl} WHERE {$this->nameCol} = {$k}";
         db_query($sql);
     }
 
@@ -129,7 +142,7 @@ class FrontAccountingDbTableStore implements KeyValueStoreInterface
             $sql = "SELECT {$this->nameCol}, {$this->valueCol} FROM {$tbl}";
         } else {
             $p = $this->esc($prefix . '%');
-            $sql = "SELECT {$this->nameCol}, {$this->valueCol} FROM {$tbl} WHERE {$this->nameCol} LIKE '{$p}'";
+            $sql = "SELECT {$this->nameCol}, {$this->valueCol} FROM {$tbl} WHERE {$this->nameCol} LIKE {$p}";
         }
 
         $res = db_query($sql);
